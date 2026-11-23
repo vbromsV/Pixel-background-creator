@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <title>Pixel Bakgrund</title>
+  <meta name="description" content="Skapa egna bakgrundsbilder för Pixel 9a (1080 × 2424).">
+  <meta name="theme-color" content="#16131f">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@400;700&family=Space+Grotesk:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@400;700&family=Orbitron:wght@400;700&family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=Bebas+Neue&family=Anton&family=Abril+Fatface&family=Lobster&family=Pacifico&family=Permanent+Marker&family=Righteous&family=Shadows+Into+Light&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn" id="btnUndo" title="Ångra" aria-label="Ångra">↶</button>
+    <button class="icon-btn" id="btnRedo" title="Gör om" aria-label="Gör om">↷</button>
+    <div class="spacer"></div>
+    <div class="seg small" id="axisLock" role="group" aria-label="Flyttläge">
+      <button data-v="none" title="Flytta fritt">✥</button>
+      <button data-v="h" title="Endast horisontellt">↔</button>
+      <button data-v="v" title="Endast vertikalt">↕</button>
+    </div>
+    <button class="icon-btn toggle" id="btnSnap" title="Fäst mot mitten" aria-label="Fäst mot mitten">⌖</button>
+    <button class="icon-btn toggle" id="btnGuides" title="Visa hjälplinjer" aria-label="Visa hjälplinjer">▦</button>
+  </header>
+
+  <main class="stage" id="stage">
+    <canvas id="canvas" width="1080" height="2424"></canvas>
+    <div class="size-badge" id="sizeBadge">1080 × 2424</div>
+  </main>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="bg" class="active">Bakgrund</button>
+    <button role="tab" data-tab="add">Lägg till</button>
+    <button role="tab" data-tab="edit">Objekt</button>
+    <button role="tab" data-tab="layers">Lager</button>
+    <button role="tab" data-tab="export">Exportera</button>
+  </nav>
+
+  <section class="panel" id="panel"></section>
+
+  <input type="file" id="fileBg" accept="image/*" hidden>
+  <input type="file" id="fileOverlay" accept="image/*" hidden>
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
